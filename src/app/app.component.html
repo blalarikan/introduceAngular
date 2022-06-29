@@ -1,0 +1,50 @@
+  <div class="container">
+<div class="row">
+<div class="col-12">
+  <h3 class="text-center">{{title}}</h3>
+  <p>Bu uygulama {{creator}} tarafından oluşturulmuştur</p>
+  <p [innerText]="paragraph"></p> 
+  <p>{{paragraph}}</p>
+
+
+<input type="text" [(ngModel)]="inputValue" #taskDesc> <!-- text değiştiğinde inputvalue da değişsin-->
+
+<button class="btn btn-danger" (click)="addNewTask(taskDesc.value)">Ekle</button>
+
+<br>
+  <span class="text-success">{{inputValue}}</span>
+
+  <h3>Yapılacak Toplam İş : {{getTotalTasksUnDone()}}</h3>
+
+  <button class="btn btn-success" (click)="filter()">{{buttonText}}</button>
+
+  <div *ngFor="let todoItem of todoItems">
+    <br>
+   <input type="checkbox" name="" id="" [(ngModel)]="todoItem.isDone"> {{todoItem.task}}  <!-- todoitem ın isdone ı değiştiğinde checkbox değişsin-->
+    <span class="badge rounded-pill" [ngClass]="todoItem.isDone ? 'bg-dark' : 'bg-danger'">
+      {{todoItem.isDone ? "yapıldı" : "yapılmadı"}}
+</span>
+     
+        
+
+  </div>
+  <br>
+  <br>
+  <span class="badge rounded-end bg-danger">{{say()}}</span>
+  
+   
+
+  
+  
+
+  
+
+  
+</div>
+</div>
+
+  </div>
+  
+  
+  
+
